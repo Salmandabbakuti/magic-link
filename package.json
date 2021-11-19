@@ -1,0 +1,60 @@
+{
+    "name": "nodejs-backend-boilerplate",
+    "version": "1.0.0",
+    "description": "Nodejs GraphQL App(ES6) Backend Boilerplate",
+    "author": "Salman Dabbakuti",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "8.2.0",
+        "esm": "3.2.25",
+        "graphql-yoga": "^1.18.3"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "linter": "eslint .",
+        "start": "node -r esm app.js",
+        "dev": "nodemon -r esm app.js --ext js,graphql"
+    },
+    "devDependencies": {
+        "eslint": "^7.24.0",
+        "eslint-plugin-import": "2.22.1",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "babel-eslint": "^10.1.0",
+        "nodemon": "^2.0.7"
+    },
+    "eslintConfig": {
+        "extends": "airbnb-base",
+        "parser": "babel-eslint",
+        "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "module"
+        },
+        "rules": {
+            "linebreak-style": "off",
+            "no-unused-vars": "warn",
+            "no-console": "off",
+            "no-await-in-loop": "warn",
+            "no-restricted-syntax": "off",
+            "import/prefer-default-export": "warn",
+            "new-cap": "warn",
+            "max-len": "off",
+            "object-curly-newline": "off",
+            "no-return-await": "error",
+            "no-param-reassign": "warn",
+            "semi": "warn",
+            "no-use-before-define": "error",
+            "indent": [
+                2
+            ],
+            "comma-dangle": [
+                "warn",
+                "never"
+            ]
+        },
+        "env": {
+            "node": true,
+            "browser": true,
+            "es6": true
+        }
+    }
+}
