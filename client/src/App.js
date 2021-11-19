@@ -1,8 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
-import { GraphQLClient, gql } from 'graphql-request';
-import Routes from "./routes/Routes";
+import Routes from "./Routes";
 
-export default function App() {
+export default function App(props) {
   return (
     <BrowserRouter>
       <Routes />

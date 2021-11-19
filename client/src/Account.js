@@ -1,19 +1,17 @@
 import { useState, useEffect } from 'react'
 import { GraphQLClient, gql } from 'graphql-request';
 
+const client = new GraphQLClient('http://localhost:4000');
 
 
 export default function Account(props) {
-  localStorage.setItem('TOKEN', props.match.params.token);
-  const token = localStorage.getItem('TOKEN');
 
-  const client = new GraphQLClient('http://localhost:4000', {
-    headers: {
-      authorization: token ? `Bearer ${token}` : ''
-    }
-  });
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState({ firstName: '', lastName: '', phone: '', email: '' });
+
+  localStorage.setItem('TOKEN', props.match.params.token);
+  const token = localStorage.getItem('TOKEN');
+  client.setHeader('authorization', token ? `Bearer ${token}` : '');
 
 
   const UPDATE_PROFILE_MUTATION = gql`

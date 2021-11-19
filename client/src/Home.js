@@ -1,10 +1,9 @@
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { GraphQLClient, gql } from 'graphql-request';
 import './index.css'
 
 const token = localStorage.getItem('TOKEN');
-
 const client = new GraphQLClient('http://localhost:4000', {
   headers: {
     authorization: token ? `Bearer ${token}` : ''
@@ -19,8 +18,6 @@ export default function Home() {
     mutation sendMagicLink($email: String!) {
       sendMagicLink(email: $email)
     }`;
-
-  useEffect(() => { }, []);
 
   const handleSendMagicLink = async (email) => {
     if (!email) return;
