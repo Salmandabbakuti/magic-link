@@ -6,6 +6,20 @@ import UserModel from './src/database/schema';
 import sendEmailToUser from './src/utils/email';
 import getUser from './src/utils/auth';
 
+// mongodb connection initiation
+mongoose.connect(databaseConfig.dbUri, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
+  autoIndex: false
+}).then(() => {
+  console.log('Database has been connected');
+}).catch((err) => {
+  console.log(`Unable to connect to Database : ${err}`);
+});
+mongoose.set('debug', true);
+
 const typeDefs = `
 scalar Json
 scalar Date
@@ -75,20 +89,6 @@ const resolvers = {
     }
   }
 };
-
-// mongodb connection initiation
-mongoose.connect(databaseConfig.dbUri, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
-  autoIndex: false
-}).then(() => {
-  console.log('Database has been connected');
-}).catch((err) => {
-  console.log(`Unable to connect to Database : ${err}`);
-});
-mongoose.set('debug', true);
 
 const pubsub = new PubSub();
 const server = new GraphQLServer({
