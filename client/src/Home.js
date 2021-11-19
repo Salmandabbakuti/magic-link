@@ -34,7 +34,6 @@ export default function Home() {
       });
   };
 
-
   return (
     <div className="row flex flex-center">
       <div className="col-6 form-widget">

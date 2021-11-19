@@ -3,16 +3,10 @@ import { GraphQLClient, gql } from 'graphql-request';
 
 const client = new GraphQLClient('http://localhost:4000');
 
-
 export default function Account(props) {
 
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState({ firstName: '', lastName: '', phone: '', email: '' });
-
-  localStorage.setItem('TOKEN', props.match.params.token);
-  const token = localStorage.getItem('TOKEN');
-  client.setHeader('authorization', token ? `Bearer ${token}` : '');
-
 
   const UPDATE_PROFILE_MUTATION = gql`
     mutation updateProfile($data: updateProfileInput!) {
@@ -24,12 +18,12 @@ export default function Account(props) {
       getMyProfile
     }`;
 
-
   useEffect(() => {
-    // can get username from url through props);
-    localStorage.setItem('TOKEN', props.match.params.token);
+    const token = props.match.params.token;
+    localStorage.setItem('TOKEN', token);
+    client.setHeader('authorization', token ? `Bearer ${token}` : '');
     getMyProfile();
-  }, [])
+  }, []);
 
   const getMyProfile = () => {
     setLoading(true);
