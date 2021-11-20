@@ -19,6 +19,12 @@ npm run dev
 ```
 3. Starting Client Application
 
+>Create ```.env``` file in  root of ```client``` with below parameters of your environment:
+
+```
+REACT_APP_API_URL=
+```
+
 ```
 cd client
 npm install
