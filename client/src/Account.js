@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { gql } from 'graphql-request';
 
-export default function Account(props) {
-  const { client } = props;
+export default function Account({ client }) {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState({ firstName: '', lastName: '', phone: '', email: '' });
 
@@ -17,9 +16,6 @@ export default function Account(props) {
     }`;
 
   useEffect(() => {
-    const token = props.match.params.token;
-    localStorage.setItem('TOKEN', token);
-    client.setHeader('authorization', token ? `Bearer ${token}` : '');
     getMyProfile();
   }, []);
 
@@ -90,7 +86,7 @@ export default function Account(props) {
       </div>
 
       <div>
-        <button className="button block" onClick={() => { localStorage.clear(); props.history.push("/") }}>
+        <button className="button block" onClick={() => { localStorage.clear(); window.location.href = "/" }}>
           Sign Out
         </button>
       </div>

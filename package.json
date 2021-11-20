@@ -1,6 +1,7 @@
 {
     "name": "magiclink-backend",
     "version": "1.0.0",
+    "private": true,
     "description": "Magic Link backend with Nodejs GraphQL (ES6)",
     "author": "Salman Dabbakuti",
     "license": "ISC",

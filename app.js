@@ -66,7 +66,7 @@ const resolvers = {
         // TODO: send magic link to user
         const { _id, firstName, lastName } = userExists;
         const activationToken = jwt.sign({ _id, firstName, lastName, email }, jwtSecret, { expiresIn: '1 days' });
-        emailObj.html = `<b>Welcome, click on below link to signin</b><br><a href="${appUrl}/user/${activationToken}" style="background:green;text-decoration:none!important;font-weight:500;margin-top:5px;color:#fff;font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px">Sign in</a>`;
+        emailObj.html = `<b>Welcome, click on below link to signin</b><br><a href="${appUrl}?token=${activationToken}" style="background:green;text-decoration:none!important;font-weight:500;margin-top:5px;color:#fff;font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px">Sign in</a>`;
         await sendEmailToUser(emailObj);
         return userExists;
       }
@@ -74,7 +74,7 @@ const resolvers = {
       const user = await UserModel.create({ email });
       const { _id, firstName, lastName, createdAt, updatedAt } = user;
       const activationToken = jwt.sign({ _id, firstName, lastName, email, createdAt, updatedAt }, jwtSecret, { expiresIn: '1 days' });
-      emailObj.html = `<b>Welcome, Confirm your signup by clicking on below link</b><br><a href="${appUrl}/user/${activationToken}" style="background:#e8a329;text-decoration:none!important;font-weight:500;margin-top:5px;color:#fff;font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px">Confirm</a>`;
+      emailObj.html = `<b>Welcome, Confirm your signup by clicking on below link</b><br><a href="${appUrl}?token=${activationToken}" style="background:#e8a329;text-decoration:none!important;font-weight:500;margin-top:5px;color:#fff;font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px">Confirm</a>`;
       await sendEmailToUser(emailObj);
       return user;
     },
