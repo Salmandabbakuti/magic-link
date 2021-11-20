@@ -1,16 +1,9 @@
 
 import { useState } from 'react'
-import { GraphQLClient, gql } from 'graphql-request';
+import { gql } from 'graphql-request';
 import './index.css'
 
-const token = localStorage.getItem('TOKEN');
-const client = new GraphQLClient(process.env.REACT_APP_API_URL || 'http://localhost:4000', {
-  headers: {
-    authorization: token ? `Bearer ${token}` : ''
-  }
-});
-
-export default function Home() {
+export default function Home({ client }) {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
