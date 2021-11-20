@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { gql } from 'graphql-request';
 
-export default function Account(props) {
-  const { client } = props;
+export default function Account({ client }) {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState({ firstName: '', lastName: '', phone: '', email: '' });
 
