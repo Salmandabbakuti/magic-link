@@ -1,6 +1,5 @@
-# backend-boilerplate
-Nodejs  ES6 Backend Boilerplate
-Passwordless login with magic link
+# magiclink-backend
+Passwordless login(magic link) via email
 
 #### Steps:
 

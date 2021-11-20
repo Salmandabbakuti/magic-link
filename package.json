@@ -1,12 +1,11 @@
 {
-    "name": "nodejs-backend-boilerplate",
+    "name": "magiclink-backend",
     "version": "1.0.0",
-    "description": "Nodejs GraphQL App(ES6) Backend Boilerplate",
+    "description": "Magic Link backend with Nodejs GraphQL (ES6)",
     "author": "Salman Dabbakuti",
     "license": "ISC",
     "dependencies": {
         "aws-sdk": "2.884.0",
-        "bcryptjs": "2.4.3",
         "dotenv": "8.2.0",
         "esm": "3.2.25",
         "graphql-yoga": "^1.18.3",
@@ -18,7 +17,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "linter": "eslint .",
         "start": "node -r esm app.js",
-        "dev": "nodemon -r esm app.js --ext js,graphql"
+        "dev": "nodemon --ignore client/ -r esm app.js --ext js,graphql"
     },
     "devDependencies": {
         "eslint": "^7.24.0",

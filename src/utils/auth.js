@@ -6,7 +6,7 @@ const getUser = (request) => {
     const header = request.request.headers.authorization;
     const token = header.replace('Bearer ', '');
     const decoded = jwt.verify(token, jwtSecret);
-    console.log(`Authenticated user: ${decoded.firstName} ${decoded.lastName}, Type: ${decoded.userType}, userId: ${decoded.userId}`);
+    console.log(`Authenticated user: ${decoded.firstName} ${decoded.lastName}, email: ${decoded.email}`);
     return decoded;
   }
   throw new Error('Authentication token required!');

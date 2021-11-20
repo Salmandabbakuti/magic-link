@@ -37,9 +37,8 @@ export default function Account(props) {
     });
   }
 
-  const updateProfile = async (user) => {
+  const updateProfile = async ({ firstName, lastName, phone }) => {
     setLoading(true);
-    const { firstName, lastName, phone } = user;
     client.request(UPDATE_PROFILE_MUTATION, { data: { firstName, lastName, phone } }).then(data => {
       setLoading(false);
       alert('Profile Updated Successfully');
