@@ -1,4 +1,4 @@
-# magiclink-backend
+# magiclink-app
 Passwordless login(magic link) via email
 
 #### Steps:
