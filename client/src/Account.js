@@ -17,9 +17,6 @@ export default function Account(props) {
     }`;
 
   useEffect(() => {
-    const token = props.match.params.token;
-    localStorage.setItem('TOKEN', token);
-    client.setHeader('authorization', token ? `Bearer ${token}` : '');
     getMyProfile();
   }, []);
 
@@ -90,7 +87,7 @@ export default function Account(props) {
       </div>
 
       <div>
-        <button className="button block" onClick={() => { localStorage.clear(); props.history.push("/") }}>
+        <button className="button block" onClick={() => { localStorage.clear(); window.location.href = "/" }}>
           Sign Out
         </button>
       </div>

@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { gql } from 'graphql-request';
 import './index.css'
@@ -18,6 +17,7 @@ export default function Home({ client }) {
     client.request(SEND_MAGICLINK_MUTATION, { email })
       .then((data) => {
         setLoading(false);
+        setEmail('');
         console.log('mutation response:', data);
         alert('magic link sent to email');
       })
