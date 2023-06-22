@@ -7,7 +7,7 @@
     "license": "ISC",
     "dependencies": {
         "aws-sdk": "2.884.0",
-        "dotenv": "8.2.0",
+        "dotenv": "8.6.0",
         "esm": "3.2.25",
         "graphql-yoga": "^1.18.3",
         "jsonwebtoken": "^8.3.0",
